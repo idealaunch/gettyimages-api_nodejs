@@ -8,6 +8,8 @@ var Collections = require("./lib/collections");
 var Countries = require("./lib/countries");
 var Events = require("./lib/events");
 var Videos = require("./lib/videos");
+var Usage = require("./lib/usage");
+var AssetChanges = require("./lib/assetchanges");
 
 const _hostName = new WeakMap();
 const _credentialOptions = new WeakMap();
@@ -101,6 +103,14 @@ class GettyImagesApi {
 
     downloads() {
         return new Downloads(this.creds, this.hostName);
+    }
+    
+    usage() {
+        return new Usage(this.creds, this.hostName);
+    }
+
+    assetchanges() {
+        return new AssetChanges(this.creds, this.hostName);
     }
 }
 
